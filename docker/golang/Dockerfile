@@ -1,7 +1,9 @@
-FROM golang:1.23
+FROM golang:1.23-alpine
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
 COPY . .
 
-CMD [ "go", "run", "main.go" ]
+RUN go build -o main .
+
+CMD ["./main"]
