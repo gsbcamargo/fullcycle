@@ -10,11 +10,12 @@ services:
       - PGPORT=5432
     expose:
       - "8081"
+    volumes:
+      - .:/app
+      - /app/node_modules
     depends_on:
       db:
         condition: service_healthy 
-    volumes:
-      - .:/app
     restart: always
 
   db:
